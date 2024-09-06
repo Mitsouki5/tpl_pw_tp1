@@ -16,8 +16,7 @@
     </script>
     <script src="<?php bloginfo('template_url') ?>/dist/scripts/main.js" defer></script>
   </head>
-
-  <body>
+  <body <?php body_class(); ?>>
     <header>
       <div class="wrapper">
         <nav>

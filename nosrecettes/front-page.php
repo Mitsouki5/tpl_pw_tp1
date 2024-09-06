@@ -2,15 +2,9 @@
 
 <section class="heroAccueil">
     <div class="wrapper">
-        <h1>NosRecettes</h1>
+        <h1><?php bloginfo('name'); ?></h1>
         <div class="gridHero">
-            <p>
-                Bienvenue sur NosRecettes ! 🌟 Ici, nous célébrons la joie de cuisiner et de partager des plats
-                délicieux avec ceux que vous aimez. Que vous soyez un chef en herbe ou un gourmet averti, notre site est
-                votre destination idéale pour découvrir des recettes savoureuses, des astuces pratiques et des idées
-                inspirantes pour chaque occasion. Explorez, créez et régalez-vous avec NosRecettes, où chaque plat
-                raconte une histoire et chaque recette est un voyage culinaire. Bon appétit ! 🍽️
-            </p>
+            <?php the_content(); ?>
             <a href="recettes.html"><div class="button">Voir les recettes</div></a>
         </div>
     </div>
