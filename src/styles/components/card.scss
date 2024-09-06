@@ -1,0 +1,18 @@
+.card {
+    display: flex;
+    .card_media {
+        img {
+            filter: brightness(70%);
+        }
+    }
+    .card_content {
+        position: relative;
+        top: -180px;
+        left: 20px;
+    }
+    a {
+        &:hover {
+            color: var(--color-primary);
+        }
+    }
+}
