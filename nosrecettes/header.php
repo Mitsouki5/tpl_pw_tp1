@@ -22,8 +22,8 @@
         <nav>
           <div class="logo"><a href="index.html">NosRecettes</a></div>
           <ul class="nav__menu">
-            <li><a href="#">Accueil</a></li>
-            <li><a href="#">Les recettes</a></li>
+            <li><a href="<?php bloginfo('url'); ?>">Accueil</a></li>
+            <li><a href="<?php bloginfo('url'); ?>/toutes-nos-recettes/">Les recettes</a></li>
             <li><a href="#">Contactez-nous</a></li>
           </ul>
         </nav>

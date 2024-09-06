@@ -5,7 +5,7 @@
         <h1><?php bloginfo('name'); ?></h1>
         <div class="gridHero">
             <?php the_content(); ?>
-            <a href="recettes.html"><div class="button">Voir les recettes</div></a>
+            <a href="<?php bloginfo('url'); ?>/toutes-nos-recettes/"><div class="button">Voir les recettes</div></a>
         </div>
     </div>
 </section>
