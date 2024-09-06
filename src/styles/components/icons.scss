@@ -33,11 +33,17 @@
 }
 
 .icon--lg {
-    height: 1.75em;
-    width: 1.75em;
+    height: 2.75em;
+    width: 2.75em;
 }
 
 .icon--xl {
     height: 7em;
     width: 7em;
+}
+.icon {
+    color: var(--color-white);
+    &:hover {
+        color: var(--color-primary);
+    }
 }

@@ -1,0 +1,23 @@
+footer {
+    background-color: var(--color-black);
+    padding: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    ul {
+        display: flex;
+        gap: 50px;
+        padding: 0;
+    }
+    a {
+        &:hover {
+            color: var(--color-primary);
+        }
+    }
+}
