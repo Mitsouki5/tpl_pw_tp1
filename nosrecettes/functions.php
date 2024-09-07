@@ -9,6 +9,12 @@ function pw_creer_menu() {
 }
 add_action('init', 'pw_creer_menu');
 
+function custom_excerpt_length( $length ) {
+	return 10;
+	}
+	add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
+
+
 //Recettes
 // Register Custom Post Type
 function recettes() {
