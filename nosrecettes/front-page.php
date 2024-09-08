@@ -18,10 +18,8 @@
                     'post_type' => 'recette',
                     'post_status' => 'publish',
                     'posts_per_page' => '2',
-                    'order' => 'rand',
+                    'orderby' => 'rand',
                     'meta_key' => 'favorite',
-                    'meta_compare' => '=',
-                    'meta_value' => 'yes',
                 );
 
                 $query = new WP_Query($arg);

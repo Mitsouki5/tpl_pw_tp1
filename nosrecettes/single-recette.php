@@ -17,7 +17,7 @@
                 <?php if (get_field('rating')) : ?>
                     <p>Note : <?php the_field('rating'); ?></p>
                 <?php endif; ?>
-                <?php if (get_field('favorite')) : ?>
+                <?php if (in_array("oui", get_field('favorite'))) : ?>
                     <h3>Recette favorite 💖</h3>
                 <?php endif; ?>
                 
@@ -26,7 +26,9 @@
                     <?php the_content(); ?>
                     <?php $chef = get_field('chefname'); ?>
                     <?php if ($chef) : ?>
-                        <h4>Recette par <?php echo get_the_title($realisator->ID); ?></h4>
+                        <?php foreach($chef as $chef) : ?>
+                            <h4>Recette par <?php echo get_the_title($chef->ID); ?></h4>
+                        <?php endforeach; ?>
                     <?php endif; ?>
                 <div class="temps">
                     <?php if (get_field('preptime')) : ?>
