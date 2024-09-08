@@ -2,7 +2,7 @@
 
 <section class="heroRecette">
     <div class="wrapper">
-        <h1>Titre de la recette</h1>
+        <h1><?php the_title(); ?></h1>
     </div>
 </section>
 
@@ -10,39 +10,50 @@
     <div class="wrapper">
         <div class="gridRecette">
             <div class="recetteImage">
-                <img src="assets/images/spaghetti.png" alt="spaghetti" />
-                <p>Note : 5/5</p>
-                <h3>Recette favorite 💖</h3>
+                <?php $image = get_field('thumbnail');
+                    if( !empty( $image ) ): ?>
+                        <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
+                    <?php endif; ?>
+                <?php if (get_field('rating')) : ?>
+                    <p>Note : <?php the_field('rating'); ?></p>
+                <?php endif; ?>
+                <?php if (get_field('favorite')) : ?>
+                    <h3>Recette favorite 💖</h3>
+                <?php endif; ?>
+                
             </div>
             <div class="recetteInfo">
-                <h3>Découvrez notre recette de spaghetti classique ! 🍝</h3>
-                <p>
-                    Plongez dans l’univers des saveurs italiennes avec notre recette de spaghetti. Ce plat simple et
-                    délicieux est parfait pour un dîner en famille ou entre amis. Nous vous guiderons à travers chaque
-                    étape pour préparer des spaghetti al dente, accompagnés d'une sauce tomate savoureuse qui mêle
-                    l’acidité des tomates, la douceur des oignons, et le parfum des herbes fraîches. Ajoutez une touche
-                    de parmesan râpé pour un fini gourmand. Que vous soyez novice en cuisine ou un passionné, cette
-                    recette vous permettra de préparer un repas réconfortant qui ravira les papilles de tous vos
-                    convives. Suivez nos instructions, et savourez le goût authentique de l’Italie chez vous ! Buon
-                    appetito ! 🍽️
-                </p>
-                <h4>Recette par Narancia Mista</h4>
+                    <?php the_content(); ?>
+                    <?php $chef = get_field('chefname'); ?>
+                    <?php if ($chef) : ?>
+                        <h4>Recette par <?php echo get_the_title($realisator->ID); ?></h4>
+                    <?php endif; ?>
                 <div class="temps">
-                    <p>Préparation 50 min</p>
-                    <p>Cuisson 20 min</p>
-                    <p>4 portions</p>
+                    <?php if (get_field('preptime')) : ?>
+                        <p><?php the_field('preptime'); ?></p>
+                    <?php endif; ?>
+                    <?php if (get_field('cookingtime')) : ?>
+                        <p><?php the_field('cookingtime'); ?></p>
+                    <?php endif; ?>
+                    <?php if (get_field('portions')) : ?>
+                        <p><?php the_field('portions'); ?></p>
+                    <?php endif; ?>
                 </div>
-                <h3>Catégories</h3>
-                <p>Boeuf, lunch</p>
+                <?php $categories = array(); ?>
+                    <?php foreach(get_the_category() as $category) : ?>
+                        <?php array_push($categories, $category->name); ?>
+                    <?php endforeach; ?>  
+                    <?php if ($categories) : ?>
+                            <h3>Catégories</h3>
+                        <p><?php echo implode(', ', $categories); ?></p>
+                    <?php endif; ?>
             </div>
         </div>
         <div class="ingredients">
-            <h2>Ingrédients</h2>
-            <ul>
-                <li>Viande</li>
-                <li>Sel</li>
-                <li>Fromage</li>
-            </ul>
+            <?php if (get_field('ingredients')) : ?>
+                <h2>Ingrédients</h2>
+                <p><?php the_field('ingredients'); ?></p>
+            <?php endif; ?>
         </div>
     </div>
     <div class="gallery">
