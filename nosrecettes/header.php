@@ -17,15 +17,22 @@
     <script src="<?php bloginfo('template_url') ?>/dist/scripts/main.js" defer></script>
   </head>
   <body <?php body_class(); ?>>
-    <header>
+  <header class="header js-header" data-component="Header">
       <div class="wrapper">
-        <nav>
-          <div class="logo"><a href="index.html">NosRecettes</a></div>
-          <ul class="nav__menu">
-            <li><a href="<?php bloginfo('url'); ?>">Accueil</a></li>
-            <li><a href="<?php bloginfo('url'); ?>/toutes-nos-recettes/">Les recettes</a></li>
-            <li><a href="#">Contactez-nous</a></li>
-          </ul>
+        <nav class="nav-primary">
+          <div class="logo"><a href="<?php bloginfo('url'); ?>"><?php bloginfo('name'); ?></a></div>
+          
+            <?php wp_nav_menu(array(
+                'theme_location' => 'menu_principal',
+                'container' => 'ul',
+                'container_class' => 'nav__menu',
+            )); ?>
+          
         </nav>
+        <button class="header__toggle js-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+      </button>
       </div>
     </header>
