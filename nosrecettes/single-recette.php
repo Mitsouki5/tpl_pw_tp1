@@ -58,11 +58,22 @@
             <?php endif; ?>
         </div>
     </div>
-    <div class="gallery">
-        <img src="assets/images/spaghetti.png" alt="spaghetti" />
-        <img src="assets/images/spaghetti.png" alt="spaghetti" />
-        <img src="assets/images/spaghetti.png" alt="spaghetti" />
+<?php if ( have_rows('gallery') ): ?>
+    <div class="gallery swiper" data-component="Carousel" data-autoplay data-loop data-split>
+        <div class="swiper-wrapper">
+        <?php while(have_rows('gallery')) : the_row(); ?>
+            <div class="swiper-slide">
+                <?php 
+                $image = get_sub_field('photo');
+                if( !empty( $image ) ): ?>
+                    <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
+                <?php endif; ?>
+                <h4><?php the_sub_field('caption'); ?></h4>
+            </div>
+        <?php endwhile; ?>
+        </div>
     </div>
+<?php endif; ?>
 </section>
 
 <?php get_footer(); ?>
